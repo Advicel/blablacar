@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-list>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Найти поездку
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <app-search-trip></app-search-trip>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf="isLogged()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Предложить поездку
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+	<app-add-trip></app-add-trip>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-list>
+</mat-card>

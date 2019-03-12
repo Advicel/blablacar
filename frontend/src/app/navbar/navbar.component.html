@@ -1,0 +1,41 @@
+<mat-sidenav-container>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" (click)="home()">
+    <mat-icon>local_taxi</mat-icon>
+  </button><h2 (click)="home()">Менеджер поездок</h2>
+    <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon class="example-icon">account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="searchTrip()">
+      <mat-icon>search</mat-icon>
+      <span>Найти поездку</span>
+    </button>
+      <button mat-menu-item (click)="addTrip()" *ngIf="isLogged()">
+        <mat-icon>add</mat-icon>
+        <span>Добавить поездку</span>
+      </button>
+    <button mat-menu-item (click)="myTrips()" *ngIf="isLogged()">
+      <mat-icon>accessible</mat-icon>
+      <span>Мои поездки</span>
+    </button>
+    <button mat-menu-item (click)="plans()" *ngIf="isLogged()">
+      <mat-icon>accessible_forward</mat-icon>
+      <span>Запланированные поездки</span>
+    </button>
+    <button mat-menu-item (click)="addCar()" *ngIf="isLogged()">
+      <mat-icon>child_friendly</mat-icon>
+      <span>Добавить машину</span>
+    </button>
+    <button mat-menu-item *ngIf="!isLogged()" (click)="login()">
+      <mat-icon>fingerprint</mat-icon>
+      <span>Войти</span>
+    </button>
+    <button mat-menu-item *ngIf="isLogged()" (click)="logout()">
+      <mat-icon>cancel</mat-icon>
+      <span>Выйти</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+</mat-sidenav-container>

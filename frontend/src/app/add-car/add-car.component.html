@@ -1,0 +1,55 @@
+  <mat-card>
+  <div>
+    <mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Модель</ng-template>
+        <mat-form-field>
+    <mat-select #fontSize placeholder="Выберите модель" formControlName="firstCtrl">
+          <mat-option value="LADA">LADA</mat-option>
+          <mat-option value="TOYOTA">TOYOTA</mat-option>
+          <mat-option value="BMW">BMW</mat-option>
+          <mat-option value="AUDI">AUDI</mat-option>
+          <mat-option value="CHEVROLET">CHEVROLET</mat-option>
+    </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button color="primary" matStepperNext>Далее</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Цвет</ng-template>
+        <mat-form-field>
+    <mat-select #fontSize placeholder="Выберите цвет" formControlName="secondCtrl">
+            <mat-option value="BLACK">BLACK</mat-option>
+            <mat-option value="WHITE">WHITE</mat-option>
+            <mat-option value="RED">RED</mat-option>
+    </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button color="warn" matStepperPrevious>Назад</button>
+          <button mat-button color="primary" matStepperNext>Далее</button>
+        </div>
+      </form>
+    </mat-step>
+  
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Номер</ng-template>
+    <mat-form-field class="example-full-width">
+      <input matInput type="number" formControlName="thirdCtrl">
+      </mat-form-field>
+  <div>
+        <button mat-button color="warn" (click)="stepper.reset()">В начало</button>
+        <button mat-button color="primary" (click)="addCar()">Создать</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  </mat-vertical-stepper>
+  </div>
+</mat-card>
+  

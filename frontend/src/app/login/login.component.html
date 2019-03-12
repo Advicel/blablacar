@@ -1,0 +1,32 @@
+<div>
+  <mat-card >
+<mat-tab-group mat-stretch-tabs color = "primary">
+
+  <mat-tab label = "Авторизация">
+      <mat-form-field>
+        <input [formControl]="phoneValidator2" matInput placeholder="Номер телефона" maxlength="10" required [(ngModel)]="loginData.login">
+        <span matPrefix>+7&nbsp;</span>
+      </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Пароль" type="password" required [(ngModel)]="loginData.password">
+        </mat-form-field>
+	
+<button mat-button color="primary" (click)="login()">Войти</button >
+  </mat-tab >
+
+  <mat-tab label = "Регистрация">
+      <mat-form-field>
+        <input [formControl]="phoneValidator" matInput placeholder="Номер телефона" required [(ngModel)]="registrationData.login">
+        <span matPrefix>+7&nbsp;</span>
+      </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Пароль" type="password" required [(ngModel)]="registrationData.password">
+        </mat-form-field>
+    <button mat-button color="primary" (click)="registration()">Подтвердить</button >
+  </mat-tab>
+</mat-tab-group>
+
+</mat-card>
+</div>

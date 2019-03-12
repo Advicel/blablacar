@@ -1,0 +1,88 @@
+<div><mat-vertical-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Место отправления</ng-template>
+      <mat-form-field>
+	<mat-select #fontSize placeholder="Выберите город" formControlName="firstCtrl">
+    <mat-option value="Samara">Samara</mat-option>
+    <mat-option value="Moscow">Moscow</mat-option>
+    <mat-option value="Kazan">Kazan</mat-option>
+    <mat-option value="BG">BG</mat-option>
+    <mat-option value="SH">SH</mat-option>
+    <mat-option value="Chapaevsk">Chapaevsk</mat-option>
+  </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button color="primary" matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Место прибытия</ng-template>
+      <mat-form-field>
+	<mat-select #fontSize placeholder="Выберите город" formControlName="secondCtrl">
+    <mat-option value="Samara">Samara</mat-option>
+    <mat-option value="Moscow">Moscow</mat-option>
+    <mat-option value="Kazan">Kazan</mat-option>
+    <mat-option value="BG">BG</mat-option>
+    <mat-option value="SH">SH</mat-option>
+    <mat-option value="Chapaevsk">Chapaevsk</mat-option>
+  </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button color="warn" matStepperPrevious>Назад</button>
+        <button mat-button color="primary" matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+    <ng-template matStepLabel>Время отправления</ng-template>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" formControlName="datePickerCtrl" placeholder="Выберите дату" disabled>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker disabled="false"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput formControlName="thirdCtrl" type="time" value="1">
+  	</mat-form-field>
+	<div>
+      <button mat-button color="warn" matStepperPrevious>Назад</button>
+      <button mat-button color="primary" matStepperNext>Далее</button>
+    </div>
+    </form>
+  </mat-step>
+
+
+<mat-step [stepControl]="fourthFormGroup">
+  <form [formGroup]="fourthFormGroup">
+    <ng-template matStepLabel>Количество мест</ng-template>
+  	<mat-form-field class="example-full-width">
+    <input matInput type="number" min="1" formControlName="fourthCtrl" value="1">
+  	</mat-form-field>
+<div>
+      <button mat-button color="warn" matStepperPrevious>Назад</button>
+      <button mat-button color="primary" matStepperNext>Далее</button>
+    </div>
+  </form>
+</mat-step>
+
+<mat-step [stepControl]="fifthFormGroup">
+  <form [formGroup]="fifthFormGroup">
+    <ng-template matStepLabel>Цена</ng-template>
+	<mat-form-field class="example-full-width">
+    <input matInput type="number" formControlName="fifthCtrl">
+  	</mat-form-field>
+<div>
+      <button mat-button color="warn" (click)="stepper.reset()">В начало</button>
+      <button mat-button color="primary" (click)="create()">Создать</button>
+    </div>
+  </form>
+</mat-step>
+
+</mat-vertical-stepper>
+</div>

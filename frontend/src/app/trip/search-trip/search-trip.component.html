@@ -1,0 +1,19 @@
+<div>
+  <mat-form-field>
+  <input matInput placeholder="Пункт отправления" [(ngModel)]="departure">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Пункт назначения" [(ngModel)]="arrival">
+</mat-form-field>
+<mat-form-field>
+  <input matInput [matDatepicker]="dp3" placeholder="Дата поездки" [(ngModel)]="date" disabled>
+  <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+  <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="time" [(ngModel)]="time" placeholder="Время поездки">
+</mat-form-field>
+<button mat-mini-fab color="primary" (click)="search()">
+  <mat-icon>search</mat-icon>
+</button>
+</div>

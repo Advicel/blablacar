@@ -1,0 +1,45 @@
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Описание </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="from">
+    <mat-header-cell *matHeaderCellDef> Откуда </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.departure.city}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="to">
+    <mat-header-cell *matHeaderCellDef> Куда </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.arrival.city}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Дата </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.date | date: 'dd.MM.yyyy'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Цена </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="passengers">
+    <mat-header-cell *matHeaderCellDef> Пассажиры </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-chip-list class="mat-chip-list-stacked">
+      <mat-chip *ngFor="let pas of row.appointments" selected (removed)="remove(pas)">
+        {{pas.passenger}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
